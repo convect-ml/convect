@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="convect",
-    version="0.0.1-7",
+    version="0.0.1-8",
     author="Sameeran Kunche",
     author_email="sameeran@convect.ml",
     description="SDK for Convect",
@@ -28,6 +28,7 @@ setuptools.setup(
         'notebook',
         'ipykernel',
         'jupyter_contrib_nbextensions',
+        'nbconvert<6',
         'pandas>=1.2.0',
         'scikit-learn>=0.24.0',
     ],
