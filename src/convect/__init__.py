@@ -20,7 +20,7 @@ class Sdk:
         self.create_host = create_host
         self.predict_host = predict_host
 
-    def submit(self, model, sample_inputs=[]):
+    def deploy(self, model, sample_inputs=[]):
         assert is_iterable(sample_inputs)
         pickled_model = codecs.encode(
             dill.dumps(model), "base64_codec").decode()
