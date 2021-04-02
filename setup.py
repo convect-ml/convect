@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="convect",
-    version="0.0.1-8",
+    version="0.0.1-7",
     author="Sameeran Kunche",
     author_email="sameeran@convect.ml",
     description="SDK for Convect",
