@@ -3,6 +3,12 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+try:
+    with open("requirements.txt", "r") as f:
+        reqs = f.read().splitlines()
+except FileNotFoundError:
+    reqs = []
+
 setuptools.setup(
     name="convect",
     version="0.0.1-7",
@@ -22,15 +28,9 @@ setuptools.setup(
     ],
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
-    install_requires=[
-        'dill',
-        'requests',
-        'notebook',
-        'ipykernel',
-        'jupyter_contrib_nbextensions',
-        'nbconvert<6',
-        'pandas>=1.2.0',
-        'scikit-learn>=0.24.0',
-    ],
-    python_requires=">=3.7.1",
+    install_requires=reqs,
+    python_requires=">=3.8.0",
+    entry_points = {
+        'console_scripts': ['convect=convect.command_line:main'],
+    }
 )

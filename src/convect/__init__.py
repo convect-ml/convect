@@ -70,3 +70,6 @@ class Sdk:
             return response.json()
         except:
             response.raise_for_status()
+
+    def hello(self):
+        return "Welcome to Convect! Head over to https://app.convect.ml to get started with deploying models."
