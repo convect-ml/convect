@@ -3,6 +3,7 @@ import io
 from contextlib import contextmanager
 from unittest import TestCase
 from convect.command_line import main
+from unittest.mock import patch
 
 
 @contextmanager
@@ -18,10 +19,21 @@ def captured_output():
 
 class TestConsole(TestCase):
     def test_hello(self):
-        with captured_output() as (out, err):
-            main()
+        with patch.object(sys, 'argv', ['blah/convect', 'hello']):
+            with captured_output() as (out, err):
+                main()
         output = out.getvalue().strip()
         self.assertEqual(
             output,
-            "Welcome to Convect! Head over to https://app.convect.ml to get started with deploying models."
+            "Welcome to Convect!\n\nHead to https://app.convect.ml to start deploying models."
+        )
+
+    def test_invalid(self):
+        with patch.object(sys, 'argv', ['blah/convect', 'asdf']):
+            with captured_output() as (out, err):
+                main()
+        output = out.getvalue().strip()
+        self.assertEqual(
+            output,
+            "Invalid usage of convect. Try:\n\nconvect hello"
         )

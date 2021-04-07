@@ -11,7 +11,7 @@ except FileNotFoundError:
 
 setuptools.setup(
     name="convect",
-    version="0.0.1-7",
+    version="0.0.1-9",
     author="Sameeran Kunche",
     author_email="sameeran@convect.ml",
     description="SDK for Convect",
@@ -29,7 +29,7 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     install_requires=reqs,
-    python_requires=">=3.8.0",
+    python_requires=">=3.7.0",
     entry_points = {
         'console_scripts': ['convect=convect.command_line:main'],
     }

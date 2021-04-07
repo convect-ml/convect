@@ -72,4 +72,5 @@ class Sdk:
             response.raise_for_status()
 
     def hello(self):
-        return "Welcome to Convect! Head over to https://app.convect.ml to get started with deploying models."
+        print("Welcome to Convect!\n")
+        print("Head to https://app.convect.ml to start deploying models.")
