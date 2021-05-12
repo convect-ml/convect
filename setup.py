@@ -11,7 +11,7 @@ except FileNotFoundError:
 
 setuptools.setup(
     name="convect",
-    version="0.0.1-9",
+    version="0.0.1-11",
     author="Sameeran Kunche",
     author_email="sameeran@convect.ml",
     description="SDK for Convect",
