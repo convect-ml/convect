@@ -67,7 +67,7 @@ convect_sdk.deploy(model, sample_inputs={sample_inputs}, ignore=[{", ".join([f'"
             "model_id": response_json['pk'],
         }
         print(
-            "Your model is now deployed! Try it out with this shell command:\n\n" +
+            f"Your model ({response_json['pk'][:6]}...) is now deployed! Try it out with this shell command:\n\n" +
             f"curl -H 'Content-Type: application/json' -d '{json.dumps(sample_inputs)}' -X POST {self.predict_host}/{response_json['pk']}/"
         )
         return submission_data
